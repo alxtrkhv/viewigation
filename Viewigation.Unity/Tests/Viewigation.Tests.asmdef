@@ -1,0 +1,34 @@
+{
+    "name": "Viewigation.Tests",
+    "rootNamespace": "Viewigation.Tests",
+    "references": [
+        "GUID:27619889b8ba8c24980f49ee34dbb44a",
+        "GUID:0acc523941302664db1f4e527237feb3",
+        "GUID:f51ebe6a0ceec4240a699833d6309b23",
+        "GUID:f7384af0a5e5a4d298b4ffca890f6388"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "nunit.framework.dll",
+        "Castle.Core.dll",
+        "NSubstitute.dll"
+    ],
+    "autoReferenced": false,
+    "defineConstraints": [
+        "UNITY_INCLUDE_TESTS",
+        "VIEWIGATION_UNITASK"
+    ],
+    "versionDefines": [
+        {
+            "name": "com.cysharp.unitask",
+            "expression": "",
+            "define": "VIEWIGATION_UNITASK"
+        }
+    ],
+    "noEngineReferences": false
+}
