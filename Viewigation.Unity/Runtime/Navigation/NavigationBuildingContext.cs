@@ -53,6 +53,13 @@ namespace Viewigation.Navigation
     }
 #endif
 
+    public NavigationBuildingContext WithCustomRouteFactory(IRouteFactory routeFactory)
+    {
+      _routeFactory = routeFactory;
+
+      return this;
+    }
+
     public NavigationBuildingContext WithMonoLifecycle(GameObject? carrier = null, Transform? parent = null)
     {
       if (carrier == null) {
@@ -68,6 +75,13 @@ namespace Viewigation.Navigation
         carrier.transform.SetParent(parent, false);
         carrier.transform.localPosition = Vector3.zero;
       }
+
+      return this;
+    }
+
+    public NavigationBuildingContext WithCustomLifecycle(ILifecycle lifecycle)
+    {
+      _lifecycle = lifecycle;
 
       return this;
     }
@@ -126,11 +140,6 @@ namespace Viewigation.Navigation
 
     public INavigation? Create()
     {
-      if (_assets == null) {
-        Log.Error($"You should select implementation of {nameof(IAssets)}.");
-        return null;
-      }
-
       if (_routeFactory == null) {
         Log.Error($"You should select implementation of {nameof(IRouteFactory)}.");
         return null;
