@@ -145,7 +145,7 @@ namespace Viewigation.Navigation
       return layer.LoadedRoute<TRoute>();
     }
 
-    public UniTask<TRoute?> Load<TRoute>(string? id = null, bool tryPreload = false,
+    public UniTask<TRoute?> Load<TRoute>(string? id = null, bool tryFindLooseView = false,
       CancellationToken cancellation = default) where TRoute : IRoute<IView>, new()
     {
       var layerKey = _routeMap.Layer<TRoute>(id);
@@ -155,7 +155,7 @@ namespace Viewigation.Navigation
 
       var layer = Layer(layerKey);
 
-      return layer.Load<TRoute>(id, tryPreload, cancellation);
+      return layer.Load<TRoute>(id, tryFindLooseView, cancellation);
     }
 
     public void Unload<TRoute>(string? id = null, bool force = false) where TRoute : IRoute<IView>

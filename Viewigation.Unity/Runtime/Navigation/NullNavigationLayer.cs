@@ -51,7 +51,7 @@ namespace Viewigation.Navigation
       LogOutput();
     }
 
-    public UniTask<TRoute?> Load<TRoute>(string? id = null, bool tryPreload = false,
+    public UniTask<TRoute?> Load<TRoute>(string? id = null, bool tryFindLooseView = false,
       CancellationToken cancellation = default)
       where TRoute : IRoute<IView>, new()
     {

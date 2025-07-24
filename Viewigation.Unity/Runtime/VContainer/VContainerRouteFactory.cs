@@ -122,8 +122,8 @@ namespace Viewigation.VContainer
           .Where(x => x != null).ToArray();
 
       var view = views.Length == 1 ? views[0] as UnityView : null;
-      if (views.Length > 1) {
-        Log.Warning($"There is {views.Length} views of {route.ViewType} type. Cannot decide which one to load.");
+      if (views.Count(x => x is IViewWithRoute { Route: null, }) != 1) {
+        return null;
       }
 
       if (view != null) {

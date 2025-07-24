@@ -8,7 +8,7 @@ namespace Viewigation.Routes
   {
     public TRoute? LoadedRoute<TRoute>(string? id = null) where TRoute : IRoute<IView>;
 
-    public UniTask<TRoute?> Load<TRoute>(string? id = null, bool tryPreload = false,
+    public UniTask<TRoute?> Load<TRoute>(string? id = null, bool tryFindLooseView = false,
       CancellationToken cancellation = default) where TRoute : IRoute<IView>, new();
 
     public void Unload<TRoute>(string? id = null, bool force = false) where TRoute : IRoute<IView>;

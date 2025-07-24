@@ -80,7 +80,7 @@ namespace Viewigation.Navigation
       return route;
     }
 
-    public async UniTask<TRoute?> Load<TRoute>(string? id, bool tryPreload = false,
+    public async UniTask<TRoute?> Load<TRoute>(string? id, bool tryFindLooseView = false,
       CancellationToken cancellation = default) where TRoute : IRoute<IView>, new()
     {
       if (TryGetExistingRoute<TRoute>(id, out var route)) {
@@ -89,7 +89,7 @@ namespace Viewigation.Navigation
 
       var newRoute = _routeFactory.NewRoute<TRoute>(id);
 
-      var view = tryPreload || newRoute.ViewKey is null
+      var view = tryFindLooseView || newRoute.ViewKey is null
         ? _routeFactory.ExistingView(newRoute, _layerConfig)
         : null;
 
