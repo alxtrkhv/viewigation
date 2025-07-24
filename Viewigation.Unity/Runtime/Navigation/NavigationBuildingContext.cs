@@ -32,6 +32,12 @@ namespace Viewigation.Navigation
       return this;
     }
 
+    public NavigationBuildingContext WithNullAssets()
+    {
+      _assets = NullAssets.Instance;
+      return this;
+    }
+
 #if VIEWIGATION_VCONTAINER
     public NavigationBuildingContext WithVContainer(IContainerBuilder containerBuilder)
     {
@@ -40,7 +46,7 @@ namespace Viewigation.Navigation
         return this;
       }
 
-      var factory = new VContainerRouteFactory(_assets);
+      var factory = new VContainerRouteFactory();
       _routeFactory = factory;
 
       containerBuilder.RegisterBuildCallback(container => {
@@ -146,6 +152,11 @@ namespace Viewigation.Navigation
 
     public INavigation? Create()
     {
+      if (_assets == null) {
+        Log.Error($"You should select implementation of {nameof(IAssets)}.");
+        return null;
+      }
+
       if (_routeFactory == null) {
         Log.Error($"You should select implementation of {nameof(IRouteFactory)}.");
         return null;
@@ -157,6 +168,8 @@ namespace Viewigation.Navigation
       }
 
       var routeFactory = _routeFactory;
+      routeFactory.Assets = _assets;
+
       var newLayers = _navigationLayersConfigs?
         .Select(x => new NavigationLayer(x.Self, routeFactory))
         .ToArray() ?? Array.Empty<INavigationLayer>();

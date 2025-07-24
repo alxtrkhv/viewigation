@@ -17,15 +17,15 @@ namespace Viewigation.VContainer
 {
   public class VContainerRouteFactory : IRouteFactory
   {
-    private readonly IAssets _assets;
     private readonly Dictionary<string, GameObject> _loadedPrefabs = new();
     private readonly Dictionary<Type, LifetimeScope> _customScopes = new();
 
     private IObjectResolver _container;
 
-    public VContainerRouteFactory(IAssets assets, IObjectResolver container = null!)
+    public IAssets Assets { get; set; } = null!;
+
+    public VContainerRouteFactory(IObjectResolver container = null!)
     {
-      _assets = assets;
       _container = container;
     }
 
@@ -83,13 +83,13 @@ namespace Viewigation.VContainer
         return null;
       }
 
-      var gameObject = await _assets.LoadAsync<GameObject>(route.ViewKey, cancellation);
+      var gameObject = await Assets.LoadAsync<GameObject>(route.ViewKey, cancellation);
       if (gameObject == null) {
         return null;
       }
 
       if (!gameObject.TryGetComponent<UnityView>(out var prefab) || prefab.GetType() != route.ViewType) {
-        _assets.ReleaseAsset(gameObject);
+        Assets.ReleaseAsset(gameObject);
         return null;
       }
 
@@ -98,7 +98,7 @@ namespace Viewigation.VContainer
       await operation;
 
       if (operation.Result == null || operation.Result.Length == 0 || operation.Result[0] == null) {
-        _assets.ReleaseAsset(gameObject);
+        Assets.ReleaseAsset(gameObject);
         return null;
       }
 
@@ -166,7 +166,7 @@ namespace Viewigation.VContainer
         return;
       }
 
-      _assets.ReleaseAsset(prefab);
+      Assets.ReleaseAsset(prefab);
       _loadedPrefabs.Remove(viewKey);
     }
   }
