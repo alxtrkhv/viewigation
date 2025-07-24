@@ -26,6 +26,12 @@ namespace Viewigation.Navigation
     }
 #endif
 
+    public NavigationBuildingContext WithCustomAssets(IAssets assets)
+    {
+      _assets = assets;
+      return this;
+    }
+
 #if VIEWIGATION_VCONTAINER
     public NavigationBuildingContext WithVContainer(IContainerBuilder containerBuilder)
     {
