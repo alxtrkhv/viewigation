@@ -1,5 +1,6 @@
 using System;
 using Cysharp.Threading.Tasks;
+using Viewigation.Navigation;
 using Viewigation.Views;
 
 namespace Viewigation.Routes

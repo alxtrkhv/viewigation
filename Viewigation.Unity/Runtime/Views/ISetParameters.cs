@@ -1,4 +1,4 @@
-namespace Viewigation.Routes
+namespace Viewigation.Views
 {
   public interface ISetParameters<TParameters> : IResetParameters
   {

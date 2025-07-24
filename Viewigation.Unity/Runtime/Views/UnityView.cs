@@ -4,6 +4,7 @@ using System.Threading;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using Viewigation.Animations;
+using Viewigation.Navigation;
 using Viewigation.ReactiveObjects;
 using Viewigation.Routes;
 

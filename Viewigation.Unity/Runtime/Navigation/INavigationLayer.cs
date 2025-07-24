@@ -1,7 +1,8 @@
 using System;
 using System.Collections.Generic;
+using Viewigation.Routes;
 
-namespace Viewigation.Routes
+namespace Viewigation.Navigation
 {
   public interface INavigationLayer : IRouter, IDisposable
   {

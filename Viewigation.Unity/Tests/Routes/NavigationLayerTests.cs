@@ -5,6 +5,7 @@ using NSubstitute;
 using NSubstitute.Core;
 using NUnit.Framework;
 using Viewigation.Blocks;
+using Viewigation.Navigation;
 using Viewigation.Routes;
 using Viewigation.Views;
 

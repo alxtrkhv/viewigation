@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 using VContainer;
 using VContainer.Unity;
 using Viewigation.Assets;
+using Viewigation.Navigation;
 using Viewigation.Routes;
 using Viewigation.Views;
 using Object = UnityEngine.Object;

@@ -1,9 +1,10 @@
 using System.Collections.Generic;
 using System.Threading;
 using Cysharp.Threading.Tasks;
+using Viewigation.Routes;
 using Viewigation.Views;
 
-namespace Viewigation.Routes
+namespace Viewigation.Navigation
 {
   public class NullNavigationLayer : INavigationLayer
   {

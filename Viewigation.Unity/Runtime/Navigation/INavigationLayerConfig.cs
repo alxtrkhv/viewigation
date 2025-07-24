@@ -1,8 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Viewigation.Blocks;
+using Viewigation.Routes;
 
-namespace Viewigation.Routes
+namespace Viewigation.Navigation
 {
   public interface INavigationLayerConfig
   {

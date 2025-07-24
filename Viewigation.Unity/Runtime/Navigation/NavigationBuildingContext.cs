@@ -2,16 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-
-#if VIEWIGATION_VCONTAINER
 using VContainer;
-using Viewigation.VContainer;
-#endif
-
 using Viewigation.Assets;
+using Viewigation.Routes;
 using Viewigation.Unity;
+using Viewigation.VContainer;
 
-namespace Viewigation.Routes
+namespace Viewigation.Navigation
 {
   public struct NavigationBuildingContext
   {

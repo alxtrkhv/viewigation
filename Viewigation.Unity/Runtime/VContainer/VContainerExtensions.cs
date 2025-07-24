@@ -1,4 +1,5 @@
 using VContainer;
+using Viewigation.Navigation;
 using Viewigation.Routes;
 
 namespace Viewigation.VContainer

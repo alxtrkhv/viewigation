@@ -3,9 +3,10 @@ using System.Diagnostics.CodeAnalysis;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using Viewigation.Blocks;
+using Viewigation.Routes;
 using Viewigation.Views;
 
-namespace Viewigation.Routes
+namespace Viewigation.Navigation
 {
   public class NavigationLayer : INavigationLayer
   {

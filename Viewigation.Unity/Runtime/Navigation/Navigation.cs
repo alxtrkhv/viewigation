@@ -4,10 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using Cysharp.Threading.Tasks;
+using Viewigation.Routes;
 using Viewigation.Unity;
 using Viewigation.Views;
 
-namespace Viewigation.Routes
+namespace Viewigation.Navigation
 {
   public class Navigation : INavigation
   {
