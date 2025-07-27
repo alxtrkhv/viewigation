@@ -63,6 +63,12 @@ namespace Viewigation.Navigation
 
       return this;
     }
+
+    public void Register(IContainerBuilder builder, Lifetime lifetime = Lifetime.Singleton)
+    {
+      var context = this;
+      builder.Register(_ => context.Create(), lifetime);
+    }
 #endif
 
     public NavigationBuildingContext WithCustomRouteFactory(IRouteFactory routeFactory)
