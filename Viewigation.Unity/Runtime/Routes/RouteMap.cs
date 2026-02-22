@@ -41,7 +41,7 @@ namespace Viewigation.Routes
     }
 
     internal static RouteKey Create(Type routeType, string? routeId = null) => new(routeType, routeId);
-    public static RouteKey Create<TRoute>(string? routeId = null) where TRoute : IRoute => new(typeof(TRoute), null);
+    public static RouteKey Create<TRoute>(string? routeId = null) where TRoute : IRoute => new(typeof(TRoute), routeId);
 
     public bool Equals(RouteKey other)
     {
